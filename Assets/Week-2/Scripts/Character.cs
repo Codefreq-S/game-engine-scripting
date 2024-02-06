@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     public static int health = 100;
     void Awake()
     {
-        instance = this;
+        //instance = this;
         //Debug.Log(Character.health);
         Debug.Log("character is awake:");
     }
