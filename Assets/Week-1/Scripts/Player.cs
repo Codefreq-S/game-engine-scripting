@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     void HandleMovement()
     {
         Vector3 input = (Input.GetAxis("Horizontal") * transform.right) + (transform.forward * Input.GetAxis("Vertical"));
-        characterController.Move(input * speed * Time.deltaTime);
+        //characterController.Move(input * speed * Time.deltaTime);
     }
 
     void HandleRotation()
