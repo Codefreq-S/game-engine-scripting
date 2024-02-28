@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using DG.Tweening;
 
 namespace Week4
 {
@@ -26,19 +26,14 @@ namespace Week4
             health = 10;
         }*/
 
+ 
+
         [SerializeField] private int health = 10;
         [SerializeField]
-        [Multiline(10)]
+        //[Multiline(10)]
         private string name;
 
-        [SerializeField] AudioClip attackSound;
 
-        private AudioSource audio;
-
-        private void Awake()
-        {
-            audio = GetComponent<AudioSource>();
-        }
         public void Damage(int amt)
         {
             health -= amt;
@@ -46,6 +41,12 @@ namespace Week4
 
         private Enemy FindNewTarget()
         {
+            //GameObject.FindGameObjectWithTag("Enemy")
+
+            /*GameObject enemy = GameObject.Find("Enemy");
+            enemy.GetComponent<Enemy>();*/
+
+
             Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
             int randomIndex = Random.Range(0, enemies.Length);
             return enemies[randomIndex];
@@ -60,11 +61,22 @@ namespace Week4
         void Attack()
         {
             Enemy target = FindNewTarget();
-            target.Damage(10);
-            //audio.Play();
-            //audio.clip = attackSound;
-            AudioManager.PlaySound(AudioManager.SoundType.ATTACK);
-            //audio.PlayOneShot(attackSound);
+            Vector3 origin = transform.position;
+
+            transform.DOMove(target.transform.position, 1f).OnComplete(() =>
+            {
+
+                target.Damage(10);
+
+                transform.DOMove(origin, 0.25f);
+
+            });
+
+           
+            
+            
+
+            //AudioManager.PlaySound(AudioManager.SoundType.ATTACK);
         }
     }
 }

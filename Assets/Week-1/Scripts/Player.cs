@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
 
     void HandleMovement()
     {
+        //if(Input.GetKeyDown(KeyCode.Escape));
+        //{
+        //    //this method is old and deprecated
+        //}
         Vector3 input = (Input.GetAxis("Horizontal") * transform.right) + (transform.forward * Input.GetAxis("Vertical"));
         //characterController.Move(input * speed * Time.deltaTime);
     }
