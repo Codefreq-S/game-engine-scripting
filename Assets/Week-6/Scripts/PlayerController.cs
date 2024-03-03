@@ -27,7 +27,7 @@ namespace Week6
 
             //moveAction = mappings.Player.Move;
             //jumpAction = mappings.Player.Jump;
-
+             
             //jumpAction.performed += Jump;
         }
 

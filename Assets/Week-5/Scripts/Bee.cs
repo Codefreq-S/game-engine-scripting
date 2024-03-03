@@ -17,21 +17,22 @@ public class Bee : MonoBehaviour
         flower.GiveNectar(); // NOTE: I think this is how I access a method from another C# class. Correct?
     }
 
-    void Fly()
-    {
+    //void Fly()
+    //{
         // COMMENTED CODE BELOW IS FOR DOTWEEN (SEE INSTRUCTIONS RELATED TO DOTWEEN)
 
         //Before the below code is implemented, use this:
-        FindObjectsByType<Flower>(FindObjectsSortMode.None); // the ")" at the end may be a typo
+        //FindObjectsByType<Flower>(FindObjectsSortMode.None); // the ")" at the end may be a typo
+
 
         //transform.DOMove(flower.transform.position, 1f).OnComplete(() =>
-        {
+        //{
         //Take nectar from flower
         //If flower returned nectar then go back to the hive and give hive nectar
         //If flower did not return nectar then go check another flower
 
-        }).SetEase(Ease.Linear);
-    }
+        //}).SetEase(Ease.Linear);
+    //}
 
     // Start is called before the first frame update
     void Start()
