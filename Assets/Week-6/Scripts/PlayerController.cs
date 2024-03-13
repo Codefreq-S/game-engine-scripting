@@ -11,23 +11,41 @@ namespace Week6
         [SerializeField] InputAction moveAction;
         InputAction jumpAction;
         [SerializeField] InputAction fireAction;
+        [SerializeField]
 
         PlayerControllerMappings mappings;
         Rigidbody rb;
 
+        public PlayerControls playerControls;
+
+        private float mouseDeltaX = 0f;
+        private float mouseDeltaY = 0f;
+        private float cameraRotX = 0f;
+        private int rotDir = 0;
+        private bool grounded;
+
+        private InputAction move;
+        private InputAction look;
+        private InputAction jump;
+
         [SerializeField] float jumpForce = 5f;
         const float SPEED = 5.5f;
 
-
+        private float HEALTH = 10f;
 
         private void Awake()
         {
             mappings = new PlayerControllerMappings();
             rb = GetComponent<Rigidbody>();
+            //Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
 
+            move = playerControls.Player.Move;
+            //fire = playerControls.Player.Fire;
+            look = playerControls.Player.Look;
             //moveAction = mappings.Player.Move;
             //jumpAction = mappings.Player.Jump;
-             
+
             //jumpAction.performed += Jump;
         }
 
